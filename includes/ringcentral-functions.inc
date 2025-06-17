@@ -80,6 +80,7 @@ function list_tm_names() {
 
 	$my_id = get_self_tm_id();
 
+	// filter through the array to get only the other person's id and convo code
 	foreach ($member_list as $key => $subArray) {
 		foreach ($subArray as $value) {
 			if ($value !== $my_id) {
@@ -109,7 +110,7 @@ function post_to_tm($people, $meeting_link) {
 
 //		echo_spaces("key", $key);
 
-		$endpoint = "https://platform.ringcentral.com/team-messaging/v1/chats/{$key}/posts";
+		$endpoint = "/team-messaging/v1/chats/{$key}/posts";
 		$message = "Hi, I have created a meeting for us, the link is: " . $meeting_link;
 
 		$body = array(
